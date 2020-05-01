@@ -1,6 +1,7 @@
 import React from 'react';
 import { ImageBackground, Image, StyleSheet, View, Text, TouchableOpacity, CheckBox } from 'react-native';
-import { Input } from 'react-native-elements'
+import { Input, Icon } from 'react-native-elements'
+import { COLORS } from '../styles/constant'
 
 function Login({ navigation }) {
   return (
@@ -15,8 +16,8 @@ function Login({ navigation }) {
           <Image style={styles.logo} source={require('../assets/images/logo.png')} />
         </View>
         <View style={styles.formContainer}>
-          <Input placeholder='identifiant' />
-          <Input placeholder='mot de passe' secureTextEntry={true} />
+          <Input style={styles.inputStyle} placeholder='identifiant' />
+          <Input style={styles.inputStyle} placeholder='mot de passe' secureTextEntry={true} />
           <View style={styles.checkboxContainer}>
             <CheckBox style={styles.checkbox} />
             <Text style={styles.label}>Rester connecté</Text>
@@ -38,17 +39,17 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'black',
+    backgroundColor: COLORS.DARK_BLUE
   },
   backgroundImage: {
     flex: 1,
     width: '100%',
     height: '100%',
-    justifyContent: "center",
+    justifyContent: "flex-end",
   },
   logoContainer: {
     alignItems: 'center',
-    marginBottom: 40
+    marginBottom: 30
   },
   logo: {
     width: 250,
@@ -58,17 +59,23 @@ const styles = StyleSheet.create({
     padding: '4%'
   },
   submitButton: {
-    backgroundColor: '#da1705',
+    backgroundColor: COLORS.MAIN_RED,
     height: 40,
     marginTop: 10,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    marginBottom: 30
   },
   textSubmit: {
-    color: 'white'
+    color: COLORS.WHITE,
+    fontSize: 18
   },
   label: {
-    color: 'white'
+    color: COLORS.WHITE
+  },
+  inputStyle: {
+    color: COLORS.WHITE,
+    fontSize: 50
   },
   checkboxContainer: {
     flexDirection: "row",
@@ -77,7 +84,5 @@ const styles = StyleSheet.create({
   },
   checkbox: {
     alignSelf: "center",
-    color: 'white'
-  },
-
+  }
 });
