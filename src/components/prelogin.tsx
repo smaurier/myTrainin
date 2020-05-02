@@ -1,9 +1,9 @@
 import React from 'react';
-import { ImageBackground, Image, StyleSheet, View, Text, TouchableOpacity, CheckBox } from 'react-native';
+import { ImageBackground, Image, StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import { COLORS } from '../styles/constant'
-import { TextInput } from 'react-native-gesture-handler';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
-function Login({ navigation }) {
+function Prelogin({ navigation }) {
   return (
     <View style={styles.container}>
       <ImageBackground source={require('../assets/images/background.jpg')} style={styles.backgroundImage} resizeMode='cover'>
@@ -11,10 +11,16 @@ function Login({ navigation }) {
           <Image style={styles.logo} source={require('../assets/images/logo.png')} />
         </View>
         <View style={styles.formContainer}>
-          <TextInput style={styles.inputStyle} placeholder='identifiant' keyboardAppearance="dark"/>
-          <TextInput style={styles.inputStyle} placeholder='mot de passe' secureTextEntry={true} />
-          <TouchableOpacity style={styles.submitButton}>
-            <Text style={styles.textSubmit}>Me connecter</Text>
+          {/* Mettre icon devant */}
+          <TouchableOpacity style={styles.facebookButton}>
+            <Icon name="facebook" style={styles.iconFacebook} />
+              <Text style={styles.textSubmit}>M'identifier avec facebook</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.submitButton} onPress={() => navigation.navigate('Login')}>
+            <Text style={styles.textSubmit}>M'identifier avec l'application</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.registerButton}>
+            <Text style={styles.textSubmit}>M'enregistrer</Text>
           </TouchableOpacity>
         </View>
       </ImageBackground>
@@ -22,7 +28,7 @@ function Login({ navigation }) {
   );
 }
 
-export default Login;
+export default Prelogin;
 
 const styles = StyleSheet.create({
   container: {
@@ -58,13 +64,34 @@ const styles = StyleSheet.create({
   formContainer: {
     padding: '4%'
   },
-  submitButton: {
-    backgroundColor: COLORS.MAIN_RED,
+  registerButton: {
+    backgroundColor: 'transparent',
     height: 40,
-    marginTop: 25,
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 20
+  },
+  submitButton: {
+    backgroundColor: COLORS.MAIN_RED,
+    height: 40,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 10
+  },
+  facebookButton: {
+    backgroundColor: COLORS.MAIN_BLUE,
+    height: 40,
+    marginTop: 25,
+    alignItems: 'center' ,
+    justifyContent: 'space-evenly',
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.07)',
+    marginBottom: 10,
+    flexDirection: 'row'
+  },
+  iconFacebook: {
+    color: COLORS.WHITE,
+    fontSize: 20
   },
   textSubmit: {
     color: COLORS.WHITE,
