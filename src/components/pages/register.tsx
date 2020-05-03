@@ -1,9 +1,11 @@
 import React from 'react';
 import { ImageBackground, Image, StyleSheet, View, Text, TouchableOpacity, CheckBox } from 'react-native';
-import { COLORS } from '../styles/constant'
+import { COLORS } from '../../styles/constant'
 import { TextInput } from 'react-native-gesture-handler';
+import TouchableOpacityButton from '../touchableOpacityButton';
+import TitlePageLogin from '../titlePageLogin';
 
-function Login({ navigation }) {
+function Register({ navigation }) {
   return (
     <View style={styles.container}>
       <ImageBackground source={require('../assets/images/background.jpg')} style={styles.backgroundImage} resizeMode='cover'>
@@ -11,18 +13,17 @@ function Login({ navigation }) {
           <Image style={styles.logo} source={require('../assets/images/logo.png')} />
         </View>
         <View style={styles.formContainer}>
-          <TextInput style={styles.inputStyle} placeholder='identifiant' keyboardAppearance="dark"/>
+          <TitlePageLogin title="Créer mon compte"></TitlePageLogin>
+          <TextInput style={styles.inputStyle} placeholder='adresse email' keyboardAppearance="dark"/>
           <TextInput style={styles.inputStyle} placeholder='mot de passe' secureTextEntry={true} />
-          <TouchableOpacity style={styles.submitButton}>
-            <Text style={styles.textSubmit}>Me connecter</Text>
-          </TouchableOpacity>
+          <TouchableOpacityButton title="M'identifier" handleFunction={()=>null}></TouchableOpacityButton>
         </View>
       </ImageBackground>
     </View>
   );
 }
 
-export default Login;
+export default Register;
 
 const styles = StyleSheet.create({
   container: {
@@ -57,28 +58,5 @@ const styles = StyleSheet.create({
   },
   formContainer: {
     padding: '4%'
-  },
-  submitButton: {
-    backgroundColor: COLORS.MAIN_RED,
-    height: 40,
-    marginTop: 25,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: 20
-  },
-  textSubmit: {
-    color: COLORS.WHITE,
-    fontSize: 18
-  },
-  label: {
-    color: COLORS.WHITE
-  },
-  checkboxContainer: {
-    flexDirection: "row",
-    marginBottom: 20,
-    alignItems: 'center'
-  },
-  checkbox: {
-    alignSelf: "center",
   }
 });
