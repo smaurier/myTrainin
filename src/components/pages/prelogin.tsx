@@ -8,9 +8,9 @@ import RegisterButton from '../registerButton';
 function Prelogin({ navigation }) {
   return (
     <View style={styles.container}>
-      <ImageBackground source={require('../assets/images/background.jpg')} style={styles.backgroundImage} resizeMode='cover'>
+      <ImageBackground source={require('../../assets/images/background.jpg')} style={styles.backgroundImage} resizeMode='cover'>
         <View style={styles.logoContainer}>
-          <Image style={styles.logo} source={require('../assets/images/logo.png')} />
+          <Image style={styles.logo} source={require('../../assets/images/logo.png')} />
         </View>
         <View style={styles.formContainer}>
           <FacebookButton title="M'identifier avec Facebook" ></FacebookButton>
@@ -40,13 +40,15 @@ const styles = StyleSheet.create({
   },
   logoContainer: {
     alignItems: 'center',
-    marginBottom: 30
+    marginBottom: 30,
+    marginTop: 20
   },
   logo: {
     width: 250,
     height: 85
   },
   formContainer: {
-    padding: '4%'
+    padding: '4%',
+    marginTop: 20
   }
 });

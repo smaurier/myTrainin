@@ -1,17 +1,16 @@
 import React from 'react';
 import { ImageBackground, Image, StyleSheet, View, Text, TouchableOpacity, CheckBox } from 'react-native';
+import { COLORS } from '../../styles/constant'
 import { TextInput } from 'react-native-gesture-handler';
 import TouchableOpacityButton from '../touchableOpacityButton';
 import TitlePageLogin from '../titlePageLogin';
-import styles from "../../styles/app.scss"
-
 
 function Login({ navigation }) {
   return (
     <View style={styles.container}>
-      <ImageBackground source={require('./src/assets/images/background.jpg')} style={styles.backgroundImage} resizeMode='cover'>
+      <ImageBackground source={require('../../assets/images/background.jpg')} style={styles.backgroundImage} resizeMode='cover'>
         <View style={styles.logoContainer}>
-          <Image style={styles.logo} source={require('../assets/images/logo.png')} />
+          <Image style={styles.logo} source={require('../../assets/images/logo.png')} />
         </View>
         <View style={styles.formContainer}>
           <TitlePageLogin title="M'identifier"></TitlePageLogin>
@@ -42,7 +41,7 @@ const styles = StyleSheet.create({
   },
   logoContainer: {
     alignItems: 'center',
-    marginBottom: 30
+    marginBottom: 30,
   },
   inputStyle: {
     color: COLORS.WHITE,
@@ -58,6 +57,7 @@ const styles = StyleSheet.create({
     height: 85
   },
   formContainer: {
-    padding: '4%'
+    padding: '4%',
+    marginTop: 20
   }
 });

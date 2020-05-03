@@ -18,13 +18,12 @@ const styles = StyleSheet.create({
     facebookButton: {
         backgroundColor: COLORS.MAIN_BLUE,
         height: 40,
-        marginTop: 25,
         alignItems: 'center',
         justifyContent: 'space-evenly',
         borderWidth: 1,
         borderColor: 'rgba(255, 255, 255, 0.07)',
-        marginBottom: 10,
-        flexDirection: 'row'
+        flexDirection: 'row',
+        marginBottom: 10
     },
     iconFacebook: {
         color: COLORS.WHITE,
