@@ -15,8 +15,6 @@ const getAccounts = async (root: any, { _id }: { _id: string }): Promise<mongoos
     await database.openUri(uri, { useNewUrlParser: true, useUnifiedTopology: true })
     // exemple of query : SELECT * from ACCOUNTS where id = args // exemple to set in query args : 5ca4bbc7a2dd94ee58162a49
     const query: mongoose.Document[] = await accountModel.find({ _id }).exec()
-
-    newAccount.save()
     // close the connection
     await database.close()
     // return fetched data

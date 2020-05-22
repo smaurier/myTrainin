@@ -1,11 +1,13 @@
 import React from 'react';
-import {ImageBackground, Image, StyleSheet, View, Text, TouchableOpacity, Button} from 'react-native';
+import { ImageBackground, Image, StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import { COLORS } from '../../styles/constant'
 import FacebookButton from '../facebookButton';
 import TouchableOpacityButton from '../touchableOpacityButton';
 import RegisterButton from '../registerButton';
 import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
+import i18n from '../../i18n';
+
 const GET_ACCOUNTS = gql`{
   getAccounts(_id: "5ca4bbc7a2dd94ee58162a48") {
     limit
@@ -14,12 +16,13 @@ const GET_ACCOUNTS = gql`{
 
 function DisplayData() {
   const { loading, error, data } = useQuery(GET_ACCOUNTS);
-  if (loading) return <Text>{loading}</Text>;
-  if (error) return <Text>{error.message}</Text>;
+  if (loading) return <Text style={styles.test}>{loading}</Text>;
+  if (error) return <Text style={styles.test}>{error.message}</Text>;
   return (
-      <Text>{data.getAccounts[0].limit}</Text>
+      <Text style={styles.test}>{data.getAccounts[0].limit}</Text>
   );
 }
+
 function Prelogin({ navigation }) {
   return (
     <View style={styles.container}>
@@ -29,7 +32,7 @@ function Prelogin({ navigation }) {
         </View>
         <View style={styles.formContainer}>
           <DisplayData/>
-          <FacebookButton title="M'identifier avec Facebook" ></FacebookButton>
+          <FacebookButton title={i18n.t('prelogin.facebookButton')} ></FacebookButton>
           <TouchableOpacityButton title="M'identifier avec l'application" handleFunction={() => navigation.navigate('Login')}></TouchableOpacityButton>
           <RegisterButton title="M'enregistrer" handleFunction={() => navigation.navigate('Register')}></RegisterButton>
         </View>
@@ -66,5 +69,8 @@ const styles = StyleSheet.create({
   formContainer: {
     padding: '4%',
     marginTop: 20
+  },
+  test: {
+    color: "white"
   }
 });

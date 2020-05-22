@@ -12,28 +12,27 @@ import { HttpLink } from 'apollo-link-http';
 
 const cache = new InMemoryCache();
 const link = new HttpLink({
-    uri: 'http://192.168.1.44:4000/graphql'
+  uri: 'http://192.168.1.12:4000/graphql'
 });
 
 const client: ApolloClient<NormalizedCacheObject> = new ApolloClient({
-    cache,
-    link
+  cache,
+  link
 });
-
 
 const Stack = createStackNavigator();
 
 function App() {
   return (
-      <ApolloProvider client={client}>
-        <NavigationContainer>
-          <Stack.Navigator initialRouteName="PreLogin">
-            <Stack.Screen name="Prelogin" component={Prelogin} />
-            <Stack.Screen name="Login" component={Login} />
-            <Stack.Screen name="Register" component={Register} />
-          </Stack.Navigator>
-        </NavigationContainer>
-      </ApolloProvider>
+    <ApolloProvider client={client}>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="PreLogin">
+          <Stack.Screen name="Prelogin" component={Prelogin} />
+          <Stack.Screen name="Login" component={Login} />
+          <Stack.Screen name="Register" component={Register} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </ApolloProvider>
   );
 }
 

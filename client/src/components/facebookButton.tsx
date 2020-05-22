@@ -3,13 +3,24 @@ import { Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { COLORS } from '../styles/constant'
 import Icon from 'react-native-vector-icons/FontAwesome';
 
+import { useFonts } from '@use-expo/font';
+import { AppLoading } from 'expo';
+
 function FacebookButton({ title }) {
-    return (
-        <TouchableOpacity style={styles.facebookButton}>
-            <Icon name="facebook" style={styles.iconFacebook} />
-            <Text style={styles.textSubmit}>{title}</Text>
-        </TouchableOpacity>
-    );
+    let [fontsLoaded] = useFonts({
+        'openSans-Regular': require('../assets/fonts/OpenSans-Regular.ttf'),
+    });
+
+    if (!fontsLoaded) {
+        return <AppLoading />;
+    } else {
+        return (
+            <TouchableOpacity style={styles.facebookButton}>
+                <Icon name="facebook" style={styles.iconFacebook} />
+                <Text style={styles.textSubmit}>{title}</Text>
+            </TouchableOpacity>
+        );
+    }
 }
 
 export default FacebookButton
@@ -31,6 +42,7 @@ const styles = StyleSheet.create({
     },
     textSubmit: {
         color: COLORS.WHITE,
-        fontSize: 18
+        fontSize: 18,
+        fontFamily: 'openSans-Regular'
     }
 });

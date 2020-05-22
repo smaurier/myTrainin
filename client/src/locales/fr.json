@@ -1,0 +1,20 @@
+{
+    "appName": "my Trainin",
+    "prelogin": {
+        "facebookButton": "M'identifier avec Facebook",
+        "straightButton": "M'identifier avec l'application",
+        "SignUp": "M'enregistrer"
+    },
+    "register": {
+        "titlePage": "Créer mon compte",
+        "mail": "adresse email",
+        "password": "mot de passe",
+        "login": "M'enregistrer"
+    },
+    "login": {
+        "titlePage": "M'identifier",
+        "mail": "adresse email",
+        "password": "mot de passe",
+        "login": "M'identifier"
+    }
+}
