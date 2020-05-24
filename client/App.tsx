@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Prelogin from './src/components/pages/prelogin';
 import Login from './src/components/pages/login';
 import Register from './src/components/pages/register';
+import Training from './src/components/pages/training';
 import { AppRegistry } from 'react-native';
 import { ApolloClient } from 'apollo-client';
 import { ApolloProvider } from '@apollo/react-hooks';
@@ -26,10 +27,12 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="PreLogin">
+        <Stack.Navigator initialRouteName="Training">
+          {/* PreLogin */}
           <Stack.Screen name="Prelogin" component={Prelogin} />
           <Stack.Screen name="Login" component={Login} />
           <Stack.Screen name="Register" component={Register} />
+          <Stack.Screen name="Training" component={Training} />
         </Stack.Navigator>
       </NavigationContainer>
     </ApolloProvider>
