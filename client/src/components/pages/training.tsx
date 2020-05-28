@@ -1,15 +1,12 @@
 import React from 'react';
-import { ImageBackground, Image, StyleSheet, View, Text, TouchableOpacity, Button, TouchableHighlight } from 'react-native';
+import { Image, StyleSheet, View, Text, TouchableOpacity, Button, TouchableHighlight } from 'react-native';
 import { COLORS } from '../../styles/constant'
-import FacebookButton from '../facebookButton';
-import TouchableOpacityButton from '../touchableOpacityButton';
-import RegisterButton from '../registerButton';
-import { useQuery } from '@apollo/react-hooks';
+import ItemExercise from '../itemExercice';
 import { gql } from 'apollo-boost';
 import i18n from '../../i18n';
 import { useFonts } from '@use-expo/font';
 import { AppLoading } from 'expo';
-import { TextInput, ScrollView } from 'react-native-gesture-handler';
+import { ScrollView } from 'react-native-gesture-handler';
 
 const GET_ACCOUNTS = gql`{
   getAccounts(_id: "5ca4bbc7a2dd94ee58162a48") {
@@ -65,29 +62,10 @@ function Training({ navigation }) {
               </View>
               <View style={styles.exerciceFrameBottom}>
                 <View style={styles.contentRepeat}>
-
-                  <View style={[styles.contentSeries, styles.ContentSeriesDone]}>
-                    <TextInput style={styles.textSeries} value='12' onChangeText={() => null} />
-                    <Text style={styles.textSeriesX}>x</Text>
-                    <TextInput style={[styles.textSeries, styles.weightSeries]} onChangeText={() => null} value='7.5' />
-                    {/* <Image style={styles.iconCheck} source={require('../../assets/images/training/icon-check.png')} /> */}
-                  </View>
-
-                  <View style={[styles.contentSeries, styles.currentContentSeries]}>
-                    <TextInput style={styles.textSeries} value='12' onChangeText={() => null} />
-                    <Text style={styles.textSeriesX}>x</Text>
-                    <TextInput style={[styles.textSeries, styles.weightSeries]} onChangeText={() => null} value='7.5' />
-                  </View>
-                  <View style={[styles.contentSeries]}>
-                    <TextInput style={[styles.textSeries, styles.textSeriesInactive]} value='12' onChangeText={() => null} />
-                    <Text style={[styles.textSeriesX, styles.textSeriesInactive]}>x</Text>
-                    <TextInput style={[styles.textSeries, styles.textSeriesInactive, styles.weightSeries]} onChangeText={() => null} value='7.5' />
-                  </View>
-                  <View style={[styles.contentSeries]}>
-                    <TextInput style={[styles.textSeries, styles.textSeriesInactive]} value='12' onChangeText={() => null} />
-                    <Text style={[styles.textSeriesX, styles.textSeriesInactive]}>x</Text>
-                    <TextInput style={[styles.textSeries, styles.textSeriesInactive, styles.weightSeries]} onChangeText={() => null} value='7.5' />
-                  </View>
+                  <ItemExercise />
+                  <ItemExercise isCurrent />
+                  <ItemExercise isInactive />
+                  <ItemExercise isInactive />
                 </View>
                 <Text style={styles.timeCounterText}>Temps de pause restant : 00:30</Text>
 
