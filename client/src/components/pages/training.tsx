@@ -35,6 +35,7 @@ function Training({ navigation }) {
 
           <View style={styles.containerExercices}>
             <Text style={styles.seanceNumberContainer}>Séance <Text style={styles.seanceNumber}>5</Text></Text>
+            
             <View style={styles.timeContainer}>
               <View style={styles.timeIndicator}>
                 <Image style={styles.timeIcon} source={require('../../assets/images/training/icon-time.png')} />
