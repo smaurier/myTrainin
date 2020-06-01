@@ -2,17 +2,10 @@ import React from 'react';
 import { Image, StyleSheet, View, Text, TouchableOpacity, Button, TouchableHighlight } from 'react-native';
 import { COLORS } from '../../styles/constant'
 import ItemExercise from '../itemExercice';
-import { gql } from 'apollo-boost';
 import i18n from '../../i18n';
 import { useFonts } from '@use-expo/font';
 import { AppLoading } from 'expo';
 import { ScrollView } from 'react-native-gesture-handler';
-
-const GET_ACCOUNTS = gql`{
-  getAccounts(_id: "5ca4bbc7a2dd94ee58162a48") {
-    limit
-  }
-}`;
 
 function Training({ navigation }) {
   let [fontsLoaded] = useFonts({
@@ -35,7 +28,7 @@ function Training({ navigation }) {
 
           <View style={styles.containerExercices}>
             <Text style={styles.seanceNumberContainer}>Séance <Text style={styles.seanceNumber}>5</Text></Text>
-            
+
             <View style={styles.timeContainer}>
               <View style={styles.timeIndicator}>
                 <Image style={styles.timeIcon} source={require('../../assets/images/training/icon-time.png')} />
