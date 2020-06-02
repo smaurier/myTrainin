@@ -13,17 +13,22 @@ function ItemExercise({ isCurrent=false, isInactive=false }) {
     if (!fontsLoaded) {
         return <AppLoading />;
     } else {
+        const contentSeriesStyle = isCurrent ? [styles.contentSeries, styles.currentContentSeries] : styles.contentSeries
+        const textInputStyle = isInactive ? [styles.textSeries, styles.textSeriesInactive] : styles.textSeries
+        const textStyle = isInactive ? [styles.textSeriesX, styles.textSeriesInactive] : styles.textSeriesX
         return (
             <View>
-                <View style={isCurrent ? [styles.contentSeries, styles.currentContentSeries] : styles.contentSeries} >
-                    <TextInput style={isInactive ? [styles.textSeries, styles.textSeriesInactive] : styles.textSeries} value='12' onChangeText={() => null} />
-                    <Text style={isInactive ? [styles.textSeriesX, styles.textSeriesInactive] : styles.textSeriesX}>x</Text>
-                    <TextInput style={isInactive ? [styles.textSeries, styles.textSeriesInactive] : styles.textSeries} onChangeText={() => null} value='7.5' />
+                <View style={contentSeriesStyle}>
+                    <TextInput style={textInputStyle} value='12' onChangeText={() => null} />
+                    <Text style={textStyle}>x</Text>
+                    <TextInput style={textInputStyle} onChangeText={() => null} value='7.5' />
                 </View>
             </View>
         );
     }
 }
+
+
 
 export default ItemExercise
 

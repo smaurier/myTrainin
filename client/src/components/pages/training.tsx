@@ -1,11 +1,12 @@
 import React from 'react';
-import { Image, StyleSheet, View, Text, TouchableOpacity, Button, TouchableHighlight } from 'react-native';
+import { Image, StyleSheet, View, Text, TouchableOpacity, TouchableHighlight } from 'react-native';
 import { COLORS } from '../../styles/constant'
 import ItemExercise from '../itemExercice';
 import i18n from '../../i18n';
 import { useFonts } from '@use-expo/font';
 import { AppLoading } from 'expo';
 import { ScrollView } from 'react-native-gesture-handler';
+import Counter from '../counter';
 
 function Training({ navigation }) {
   let [fontsLoaded] = useFonts({
@@ -17,6 +18,16 @@ function Training({ navigation }) {
   if (!fontsLoaded) {
     return <AppLoading />;
   } else {
+
+    // Ask when all the field are full : popUp to ask if this exercice is finished
+
+    // Chronometre a faire
+
+    // fonction champs
+
+    // faire popup ajout de note
+
+
     return (
       <ScrollView>
         <View style={styles.backgroundView}>
@@ -29,27 +40,19 @@ function Training({ navigation }) {
           <View style={styles.containerExercices}>
             <Text style={styles.seanceNumberContainer}>Séance <Text style={styles.seanceNumber}>5</Text></Text>
 
-            <View style={styles.timeContainer}>
-              <View style={styles.timeIndicator}>
-                <Image style={styles.timeIcon} source={require('../../assets/images/training/icon-time.png')} />
-                <Text style={styles.timeCounter}>commencée il y à <Text style={styles.timeCounterSpan}>42:50</Text></Text>
-              </View>
-              <TouchableOpacity style={styles.buttonTime} onPress={() => null}>
-                <Text style={styles.buttonTimeText}>Arréter la séance</Text>
-              </TouchableOpacity>
-            </View>
+            <Counter />
 
             <View>
-
+              {/* A refacto 1*/}
               <View style={styles.exerciceFrame}>
                 <Image style={styles.iconMuscle} source={require('../../assets/images/icon-muscle/shoulders.png')} />
                 <Text style={styles.nameExercice}>Élevations latérales</Text>
                 <TouchableHighlight onPress={() => null}>
                   <Image style={styles.iconStat} source={require('../../assets/images/training/icon-stats.png')} />
                 </TouchableHighlight>
-                {/* <Image style={styles.iconCheck} source={require('../../assets/images/training/icon-check.png')} /> */}
               </View>
 
+              {/* A refacto 2*/}
               <View style={[styles.exerciceFrame, styles.exerciceFrameOpen]}>
                 <Image style={styles.iconMuscle} source={require('../../assets/images/icon-muscle/shoulders.png')} />
                 <Text style={styles.nameExercice}>Élevations latérales</Text>
@@ -83,13 +86,14 @@ function Training({ navigation }) {
               </View>
 
 
-              {/*  Repeat View du dessus */}
-
+              
+              {/* A refacto 3*/}
               <View style={[styles.exerciceFrame, styles.exerciceFrameToDo]}>
                 <Image style={styles.iconMuscle} source={require('../../assets/images/icon-muscle/shoulders.png')} />
                 <Text style={styles.nameExercice}>Élevations latérales</Text>
               </View>
 
+              {/* A refacto 4*/}
               <View style={[styles.exerciceFrame, styles.exerciceFrameToDo]}>
                 <Image style={styles.iconMuscle} source={require('../../assets/images/icon-muscle/shoulders.png')} />
                 <Text style={styles.nameExercice}>Élevations latérales</Text>
@@ -158,42 +162,6 @@ const styles = StyleSheet.create({
   seanceNumber: {
     fontFamily: 'openSans-Bold',
     fontSize: 20,
-  },
-  timeContainer: {
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    marginTop: 10,
-    marginBottom: 10
-  },
-  timeCounter: {
-    fontFamily: 'openSans-Semibold',
-    fontSize: 12,
-  },
-  timeCounterSpan: {
-    fontFamily: 'openSans-Regular',
-    fontSize: 12,
-  },
-  timeIcon: {
-    width: 15,
-    height: 15,
-    marginRight: 5
-  },
-  timeIndicator: {
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center"
-  },
-  buttonTime: {
-    backgroundColor: COLORS.ALT_GREY,
-    borderRadius: 2,
-    padding: 8,
-    paddingTop: 2,
-    paddingBottom: 2
-  },
-  buttonTimeText: {
-    color: COLORS.WHITE
   },
   exerciceFrame: {
     backgroundColor: COLORS.DARK_BLUE,
