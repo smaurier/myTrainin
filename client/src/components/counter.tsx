@@ -4,6 +4,7 @@ import { useFonts } from '@use-expo/font';
 import { AppLoading } from 'expo';
 import { TouchableOpacity, State } from 'react-native-gesture-handler';
 import { COLORS } from '../styles/constant';
+import useInterval from '../hooks/useInterval'
 
 function Counter() {
     let [fontsLoaded] = useFonts({

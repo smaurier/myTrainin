@@ -13,7 +13,7 @@ import { HttpLink } from 'apollo-link-http';
 
 const cache = new InMemoryCache();
 const link = new HttpLink({
-  uri: 'http://192.168.1.12:4000/graphql'
+  uri: `http://192.168.0.43:4000/graphql`
 });
 
 const client: ApolloClient<NormalizedCacheObject> = new ApolloClient({
