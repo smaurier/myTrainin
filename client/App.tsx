@@ -10,6 +10,7 @@ import { ApolloClient } from 'apollo-client';
 import { ApolloProvider } from '@apollo/react-hooks';
 import { InMemoryCache, NormalizedCacheObject } from 'apollo-cache-inmemory';
 import { HttpLink } from 'apollo-link-http';
+import Stats from './src/components/pages/stats';
 
 const cache = new InMemoryCache();
 const link = new HttpLink({
@@ -27,12 +28,13 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Training">
+        <Stack.Navigator initialRouteName="Stats">
           {/* PreLogin */}
           <Stack.Screen name="Prelogin" component={Prelogin} />
           <Stack.Screen name="Login" component={Login} />
           <Stack.Screen name="Register" component={Register} />
           <Stack.Screen name="Training" component={Training} />
+          <Stack.Screen name="Stats" component={Stats} />
         </Stack.Navigator>
       </NavigationContainer>
     </ApolloProvider>
