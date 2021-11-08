@@ -16,7 +16,7 @@
     "commit": "npx git-cz"
   },
   "dependencies": {
-    "apollo-server": "^2.9.16",
+    "apollo-server": "^2.25.3",
     "apollo-server-express": "^2.9.16",
     "colors": "^1.4.0",
     "cors": "^2.8.5",
